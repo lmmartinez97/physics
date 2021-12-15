@@ -1,9 +1,10 @@
 import pygame.time
 
 from SimulationWindow import GameWindow
-
+import auxiliar
 myWindow = GameWindow(width = 1200, height = 800)
 game_clock = pygame.time.Clock()
+
 
 def main():
     myWindow.window_config()

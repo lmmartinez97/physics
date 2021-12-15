@@ -23,10 +23,6 @@ class GameWindow:
     def erase_screen(self):
         self.screen.fill(self.background_color)
 
-    def draw_objects(selfself, objects):
-        for object in objects:
-
-
     def exit_window(self):
         ret = 0
         for event in pygame.event.get():
