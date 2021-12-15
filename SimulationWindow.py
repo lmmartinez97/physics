@@ -3,13 +3,13 @@ import pygame
 import datetime
 
 from pygame.constants import *
-from pygame.color import THECOLORS
 from pygame.locals import *
 
 class GameWindow:
     def __init__(self, background_color = (255, 255, 255), width = 1080, height = 720):
         self.background_color = background_color
         self.windowSize = [width, height]
+        self.bRects = [] #stores bounding rectangles of objects drawn
 
     def window_config(self, caption = 'Test'):
         pygame.init()
@@ -17,8 +17,10 @@ class GameWindow:
         pygame.display.set_caption(caption)
         self.screen.fill(self.background_color)
 
-    def draw_frame(self):
-        pygame.display.update()
+    def draw_frame(self, objects):
+        for object in objects:
+            self.bRects.append(object.show(self.screen))
+        pygame.display.update(self.bRects)
 
     def erase_screen(self):
         self.screen.fill(self.background_color)
